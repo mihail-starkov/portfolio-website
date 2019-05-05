@@ -23,39 +23,38 @@
  */
 const menu = {
   init() {
-    let btnBurger = document.querySelector('.btn_burger');
-    btnBurger.addEventListener('click', () => {
-      btnBurger.classList.toggle('btn_burger-active');
-      document.querySelector('.wrap-swipe-Menu')
-        .classList.toggle('wrap-swipe-menu_active');
-      document.querySelector('.content')
-        .classList.toggle('content_active');
-    });
-    let menu = document.querySelectorAll('.menu');
+    let menu = document.querySelectorAll('.Menu');
+    
     for (let i = 0; i < menu.length; i++) {
       menu[i].addEventListener('click', (e) => {
         this.removeStyleClass();
-        if ((e.target.classList.contains('menu__link'))) {
+        if ((e.target.classList.contains('Menu-link'))) {
           this.setStyleClass(e.target);
         }
       });
     }
   },
-  
+  /**
+   * Метод удаляет класс Css у элемента
+   */
   removeStyleClass() {
-    let links = document.querySelectorAll('.menu__link');
+    let links = document.querySelectorAll('.Menu-link');
     for (let i = 0; i < links.length; i++) {
-      links[i].classList.remove('menu__link_active');
+      links[i].classList.remove('Menu-link_active');
     }
   },
+  /**
+   * Метод устанавливает класс Css у элемента в верхнем и нижнем менню
+   * @param link {HTMLElement} Элемент по которому был произведен клик
+   */
   setStyleClass(link) {
-    let links = document.querySelectorAll('.menu__link');
+    let links = document.querySelectorAll('.Menu-link');
     for (let i = 0; i < links.length; i++) {
       if (link.text === links[i].text) {
-        links[i].classList.add('menu__link_active');
+        links[i].classList.add('Menu-link_active');
       }
     }
-    link.classList.add('menu__link_active');
+    link.classList.add('Menu-link_active');
   },
 };
-window.onload = () => menu.init();
+menu.init();

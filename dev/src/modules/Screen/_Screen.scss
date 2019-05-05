@@ -1,10 +1,25 @@
 @import "../../../vendors/smart-grid/smart-grid";
 
+.wrap-screen {
+	overflow-x      : hidden;
+	background      : #fbfbfb url("../img/content/figure.png") no-repeat right bottom;
+	background-size : contain;
+	@include sm-block() {
+		background-size     : auto;
+		background-position : 50% 12%;
+	}
+	@include xs-block() {
+		background-size     : auto;
+		background-position : 50% 24%;
+	}
+}
+
 .Screen {
 	display         : flex;
 	align-items     : center;
 	justify-content : space-between;
 	padding-top     : 27px;
+	
 	
 	@include sm-block() {
 		flex-direction : column;
@@ -28,12 +43,13 @@
 		font-weight   : 900;
 		color         : #1f1f24;
 		margin-bottom : 20px;
+		
 		@include to(1180px) {
 			font-size : 54px;
 		}
 		
 		@include md-block() {
-			font-size : 44px;
+			font-size : 40px;
 		}
 		@include xs-block() {
 			font-size  : 30px;
@@ -45,12 +61,14 @@
 		font-size     : 25px;
 		color         : #8993ad;
 		margin-bottom : 45px;
+		text-shadow   : 1px 1px 0 #000;
 		@include md-block() {
 			font-size : 20px;
 		}
 		@include xs-block() {
-			font-size  : 16px;
-			text-align : center;
+			font-size     : 16px;
+			text-align    : center;
+			margin-bottom : 27px;
 		}
 	}
 	
@@ -60,6 +78,8 @@
 	
 	&-image {
 		margin-right : -60px;
+		z-index      : 999;
+		object-fit   : contain;
 		@include sm-block() {
 			order  : -1;
 			margin : 0 auto 20px;

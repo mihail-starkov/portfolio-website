@@ -266,6 +266,11 @@ gulp.task('svg:dev', () => {
     ))
     .pipe(gulp.dest(config.build.svg.src));
 });
+//Контентные изображения формата SVG переносим
+gulp.task('svg-content:dev', function () {
+  return gulp.src('./dev/img/content/*.svg')
+    .pipe(gulp.dest(config.build.img.src));
+});
 
 //Переносим шрифты
 gulp.task('fonts:dev', function () {
@@ -291,7 +296,16 @@ gulp.task('watch:dev', function () {
 });
 
 gulp.task('dev', gulp.series('clean:dev',
-  gulp.parallel('styleLint:dev', 'styles:dev', 'pug:dev', 'scripts:dev', 'img:dev', 'svg:dev', 'fonts:dev')));
+  gulp.parallel(
+    'styleLint:dev',
+    'styles:dev',
+    'pug:dev',
+    'scripts:dev',
+    'img:dev',
+    'svg-content:dev',
+    'svg:dev',
+    'fonts:dev',
+  )));
 
 gulp.task('build', gulp.series('clean:dev',
   gulp.parallel('styles:prod', 'pug:dev', 'scripts:prod', 'img:prod', 'svg:dev', 'fonts:dev')));
