@@ -1,0 +1,186 @@
+{
+  "rules": {
+    "indentation": [
+      2,
+      {
+        "message": "Отступы должны быть кратны 2-м пробелам"
+      }
+    ],
+    "string-quotes": [
+      "double",
+      {
+        "message": "Ожидаются двойные кавычки"
+      }
+    ],
+    "no-duplicate-selectors": [
+      true,
+      {
+        "message": "Не следует дублировать селекторы"
+      }
+    ],
+    "color-hex-case": [
+      "lower",
+      {
+        "message": "Следует писать HEX цвета в нижнем регистре"
+      }
+    ],
+    "selector-combinator-space-after": "always",
+    "selector-attribute-quotes": "always",
+    "selector-attribute-operator-space-before": "always",
+    "selector-attribute-operator-space-after": "always",
+    "selector-attribute-brackets-space-inside": "always",
+    "declaration-block-trailing-semicolon": [
+      "always",
+      {
+        "message": "Каждое правило следует заканчивать точкой с запятой"
+      }
+    ],
+    "declaration-no-important": [
+      true,
+      {
+        "message": "Не следует использовать !important"
+      }
+    ],
+    "declaration-colon-space-before": [
+      "always",
+      {
+        "message": "Перед двоеточием нужен пробел"
+      }
+    ],
+    "declaration-colon-space-after": [
+      "always",
+      {
+        "message": "После двоеточия нужен пробел"
+      }
+    ],
+    "number-leading-zero": [
+      "never",
+      {
+        "message": "В числовом значении перед точкой ноль не нужен"
+      }
+    ],
+    "declaration-block-no-duplicate-properties": [
+      true,
+      {
+        "message": "Дублирующиеся правила"
+      }
+    ],
+    "function-url-quotes": "always",
+    "font-family-name-quotes": [
+      "always-where-recommended",
+      {
+        "message": "Использовать кавычки в Font-family только где необходимо - например в 'Time New Roman' "
+      }
+    ],
+    "comment-no-empty": [
+      true,
+      {
+        "message": "Запрещено использовать пустые комментарии"
+      }
+    ],
+    "max-nesting-depth": [
+      4,
+      {
+        "message": "Разрешенная вложенность 4"
+      }
+    ],
+    "selector-max-compound-selectors": [
+      4,
+      {
+        "message": "Максимальное кол-во составных селекторов равно 3"
+      }
+    ],
+    "selector-max-class": [
+      4,
+      {
+        "message": "Максимальное кол-во классов в селекторе 3"
+      }
+    ],
+    "declaration-block-no-redundant-longhand-properties": [
+      true,
+      {
+        "message": "Требует объеденить сво-ва в одно, "
+      }
+    ],
+    "declaration-block-no-shorthand-property-overrides": [
+      true,
+      {
+        "message": "Сокращенная запись перезапишет стили, заданные выше"
+      }
+    ],
+    "declaration-block-single-line-max-declarations": [
+      1,
+      {
+        "message": "На строке должно быть только одно правило"
+      }
+    ],
+    "block-closing-brace-newline-before": [
+      "always",
+      {
+        "message": "Закрывающая скобка должна быть на новой строке"
+      }
+    ],
+    "block-opening-brace-space-before": [
+      "always",
+      {
+        "message": "Нужен пробел перед открывающей фигурной скобкой"
+      }
+    ],
+    "selector-list-comma-newline-after": [
+      "always",
+      {
+        "message": "Каждый селектор должен быть на новой строке"
+      }
+    ],
+    "selector-type-no-unknown": [
+      true,
+      {
+        "message": "Такого элемента не существует"
+      }
+    ],
+    "value-no-vendor-prefix": [
+      true,
+      {
+        "message": "Не нужно использовать вендорные префиксы"
+      }
+    ],
+    "unit-no-unknown": [
+      true,
+      {
+        "message": "Некорректные единицы измерения"
+      }
+    ],
+    "block-opening-brace-newline-after": [
+      "always",
+      {
+        "message": "Нужен перенос после открывающей фигурной скобки"
+      }
+    ],
+    "comment-whitespace-inside": "always",
+    "comment-empty-line-before": "always",
+    "rule-empty-line-before": "always",
+    "selector-pseudo-element-colon-notation": [
+      "single",
+      {
+        "message": "Для псевдоэлементов следует использовать одинарное двоеточие ':', вместо двойного"
+      }
+    ],
+    "block-no-empty": [
+      true,
+      {
+        "message": "Пустых блоков быть не должно"
+      }
+    ],
+    "selector-pseudo-class-parentheses-space-inside": "never",
+    "media-feature-range-operator-space-before": "always",
+    "media-feature-range-operator-space-after": "always",
+    "media-feature-parentheses-space-inside": "never",
+    "media-feature-colon-space-before": "always",
+    "media-feature-colon-space-after": "always",
+    "shorthand-property-no-redundant-values": [
+      true,{
+        "message": "Запрещает избыточные свойства, которые в последствии могут переписать другие свойства"
+      }
+    ]
+  }
+}
