@@ -56,9 +56,11 @@
 		& .Item-image {
 			width         : 20%;
 			min-width     : 73px;
+			min-height    : 74px;
 			margin-bottom : 20px;
 			@include xs-block() {
 				min-width : 60px;
+				min-height : 60px;
 			}
 			@include lg(margin-bottom, 20px);
 		}

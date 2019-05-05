@@ -1,0 +1,63 @@
+.Swipe {
+	display          : none;
+	align-items      : center;
+	flex-direction   : column;
+	position         : fixed;
+	left             : 0;
+	top              : 0;
+	width            : 30%;
+	height           : 100%;
+	background-color : #fff;
+	z-index          : 999;
+	transform        : translateX(-110%);
+	box-shadow       : 4px 1px 9px 0 rgba(50, 50, 50, 0.82);
+	transition       : .8s;
+	
+	@include lg(display, flex);
+	
+	@include xs(width, 50%);
+	
+	&_active {
+		transform : translateX(0%);
+	}
+	
+	&-photo {
+		width           : 100px;
+		height          : 100px;
+		border-radius   : 50%;
+		border          : 2px solid pink;
+		background      : url("../img/content/photo.png") no-repeat 10px 0;
+		background-size : contain;
+		background-clip : revert;
+		margin-top      : 100px;
+	}
+	
+	&-Menu {
+		margin-top : 100px;
+		
+		.Menu-list {
+			display        : flex;
+			flex-direction : column;
+			align-items    : center;
+		}
+		
+		.Menu-item {
+			margin-bottom : 20px;
+		}
+		
+		.Menu-link {
+			font-size : 20px;
+		}
+	}
+}
+
+
+.Content_active {
+	transform : translateX(30%);
+}
+
+@media screen and (max-width : 464px) {
+	.Content_active {
+		transform : translateX(50%);
+	}
+}

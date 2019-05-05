@@ -64,6 +64,11 @@
 				font-size : 15px;
 			}
 			
+			&_active {
+				color         : #fc557c;
+				border-bottom : 1px solid #fc557c;
+			}
+			
 			&:hover {
 				color : #fc557c;
 			}
