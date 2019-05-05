@@ -1,42 +1,49 @@
+@import "../../../vendors/smart-grid/smart-grid";
+
 .Control {
 	display          : flex;
 	align-items      : center;
 	justify-content  : center;
 	position         : absolute;
-	top              : 40%;
+	top              : 35%;
 	width            : 60px;
 	height           : 60px;
-	border           : 1px solid transparent;
 	border-radius    : 50%;
 	background-color : #fff;
 	font-size        : 30px;
-	color            : #8993ad;
+	fill             : #8993ad;
 	transition       : all .3s linear;
 	cursor           : pointer;
 	box-shadow       : 0 0 20px 0 #00000014;
 	transform        : translateY(-40%);
+	border           : 0;
 	
-	@media screen and (max-width : 1170px) {
-		display : none;
+	@include lg(display, none);
+	
+	&-icon {
+		width  : 14px;
+		height : 24px;
 	}
 	
 	&:hover {
 		background-color : #8993ad;
-		color            : #fff;
-		border           : 1px solid #8993ad;
+		fill             : #fff;
 	}
 	
 	&:active {
 		background-color : #69738d;
-		color            : #fff;
-		border           : 1px solid #69738d;
+		fill             : #fff;
 	}
 	
 	&_prev {
-		left : -3%;
+		left : -1%;
 	}
 	
 	&_next {
-		right : -3%;
+		right : -1%;
+		
+		.Control-icon {
+			transform : rotateY(180deg);
+		}
 	}
 }
