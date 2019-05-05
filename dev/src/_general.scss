@@ -4,6 +4,12 @@
 
 @include reset();
 
+*,
+*:after,
+*:before {
+	box-sizing : border-box;
+}
+
 .container {
 	@include wrapper();
 }

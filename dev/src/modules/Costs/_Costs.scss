@@ -13,9 +13,6 @@
 	
 	&-inner {
 		max-width : 942px;
-		@include to($break_sm) {
-			max-width : 400px;
-		}
 	}
 	
 	
