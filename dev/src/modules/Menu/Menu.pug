@@ -1,0 +1,12 @@
+include ../../mixins
+-var ButtonBurgerClass = "Header-ButtonBurger"
+nav(class=classMenu)
+	if classMenu === 'Menu Header-Menu'
+		include ../ButtonBurger/ButtonBurger
+	ul(class="Menu-list")
+		li(class="Menu-item")
+			+link("#Skills", "Услуги")(class="Menu-link")
+		li(class="Menu-item")
+			+link("#Examples", "Портфолио")(class="Menu-link")
+		li(class="Menu-item")
+			+link("#Costs", "Стоимость")(class="Menu-link")

@@ -1,0 +1,20 @@
+@import "../../vars";
+
+.ButtonPrimary {
+	font-size        : 18px;
+	border           : 0;
+	cursor           : pointer;
+	transition       : All .2s linear;
+	background-color : $btn-primary-bg-color;
+	color            : #fff;
+	padding          : 1.111em 3.333em;
+	
+	@media screen and (max-width : 464px) {
+		font-size : 16px;
+		width     : 100%;
+	}
+	
+	&:hover {
+		background : #f82370;
+	}
+}

@@ -1,0 +1,44 @@
+@import "../../vars";
+@import "../../../vendors/smart-grid/smart-grid";
+
+.Phone {
+	font-size  : 25px;
+	color      : #1f1f24;
+	transition : all .5s ease;
+	@include xs-block() {
+		font-size   : 20px;
+		font-weight : 500;
+		color       : #8993ad;
+	}
+	
+	&:after {
+		content : '+7 (499) 995-55-77';
+	}
+	
+	&:hover {
+		background      : linear-gradient(
+				$bg-gradient-deg,
+				$bg-gradient-first-color,
+				$bg-gradient-second-color
+		);
+		background-clip : text;
+		color           : transparent;
+	}
+	
+	&:focus {
+		outline        : 1px solid #fc557c;
+		outline-offset : 10px;
+	}
+	
+	&-icon {
+		margin-right : 20px;
+		transform    : rotate(90deg);
+		width        : 18px;
+		height       : 18px;
+		fill: #fa0b8d;
+		@include xs-block() {
+			width  : 13px;
+			height : 13px;
+		}
+	}
+}

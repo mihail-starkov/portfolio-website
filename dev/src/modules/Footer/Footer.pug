@@ -1,0 +1,18 @@
+- var classMenu = 'Menu Footer-Menu'
+- var PhoneClass = 'Phone Footer-Phone'
+- var PhoneIconClass = 'Phone-icon'
+- var MailClass = 'Mail Footer-Mail'
+- var MailIconClass = 'Mail-icon'
+- var ButtonDefaultClass = 'ButtonDefault Footer-ButtonDefault'
+- var buttonDefaultText = 'Заказать звонок'
+
+
+footer(class="Footer container")
+	div(class="Footer-inner")
+		include ../Menu/Menu
+		div(class="ContactUs-column ContactUs-column_left")
+			include ../Phone/Phone
+			include ../Mail/Mail
+		div(class="ContactUs-column ContactUs-column_right")
+			include ../ButtonDefault/ButtonDefault
+			include ../Socials/Socials

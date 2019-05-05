@@ -1,0 +1,16 @@
+section(class="Examples container" id="Examples")
+	h2(class="Examples-heading") Примеры моих работ
+	div(class="Examples-items")
+		div(class='Item Examples-Item Examples-Item_single Examples-Item_double')
+			img(src="./img/content/Image_1.png" class='Item-image' alt="Превью сайта психолога Веры Антоновой")
+			div(class='Item-description')='Сайт психолога Веры Антоновой'
+		div(class='Item Examples-Item Examples-Item_double')
+			img(src="./img/content/Image_2.png" class='Item-image' alt="Превью сайта магазина 'детской одежды'")
+			div(class='Item-description')='Сайт магазина детской одежды'
+		div(class='Item Examples-Item')
+			img(src="./img/content/Image_3.png" class='Item-image' alt="Превью сайта магазина 'Рыболов'")
+			div(class='Item-description')='Сайт магазина «Рыболов»'
+	include  ../SwitchImages/SwitchImages
+	- var ButtonPrimaryText = 'Заказать проект'
+	- var ButtonPrimaryClass = 'ButtonPrimary Examples-ButtonPrimary'
+	include ../ButtonPrimary/ButtonPrimary

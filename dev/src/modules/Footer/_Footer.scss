@@ -1,0 +1,85 @@
+@import "../../../vendors/smart-grid/smart-grid";
+
+.Footer {
+	padding-top    : 75px;
+	padding-bottom : 75px;
+	@include sm-block() {
+		padding-top    : 50px;
+		padding-bottom : 50px;
+	}
+	
+	&-inner {
+		@include row-flex();
+		@include sm-block() {
+			flex-direction  : column;
+			justify-content : center;
+			margin-top      : 20px;
+			align-items     : center;
+		}
+	}
+	
+	&-Menu {
+		@include col();
+		@include size(4);
+		@include size-lg(4);
+		@include size-md(2);
+		@include sm-block() {
+			width         : auto;
+			margin-bottom : 48px;
+		}
+		@include xs(align-self, flex-start);
+		
+		.Menu-list {
+			flex-direction : column;
+			@include sm-block() {
+				display        : flex;
+				flex-direction : row;
+			}
+			@include xs-block() {
+				flex-direction : column;
+			}
+		}
+		
+		.Menu-item {
+			margin-bottom : 15px;
+			@include sm-block() {
+				margin-right : 15px;
+			}
+			
+			@include xs-block() {
+				margin-right : 0;
+			}
+			
+			&:last-child {
+				@include sm-block() {
+					margin-right : 0;
+				}
+			}
+		}
+		
+		.Menu-link {
+			font-size : 18px;
+			color     : #8993ad;
+			@include xs-block() {
+				font-size : 15px;
+			}
+			
+			&:hover {
+				color : #fc557c;
+			}
+		}
+	}
+	
+	&-Phone {
+		margin-bottom : 30px;
+	}
+	
+	&-ButtonDefault {
+		margin-bottom : 30px;
+		@include xs-block() {
+			width            : 100%;
+			background-color : #ff4e2e;
+			color            : #fff;
+		}
+	}
+}

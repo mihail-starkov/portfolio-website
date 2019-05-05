@@ -1,0 +1,38 @@
+/*-------------------------------------------------------------Подключаем Шрифты стили*/
+@import "../src/fonts";
+/*-------------------------------------------------------------Подключаем основные стили*/
+@import "../src/general";
+/*-------------------------------------------------------------Подключаем иконочные шрифты*/
+/*@import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";*/
+/*-------------------------------------------------------------Блок Menu*/
+@import "../src/modules/Menu/Menu";
+/*-------------------------------------------------------------Блок ContactUs*/
+@import "../src/modules/ContactUs/ContactUs";
+/*-------------------------------------------------------------Блок Phone*/
+@import "../src/modules/Phone/Phone";
+/*-------------------------------------------------------------Блок Mail*/
+@import "../src/modules/Mail/Mail";
+/*-------------------------------------------------------------Блок Socials*/
+@import "../src/modules/Socials/Socials";
+/*-------------------------------------------------------------Блок ButtonDefault*/
+@import "../src/modules/ButtonDefault/ButtonDefault";
+/*-------------------------------------------------------------Блок ButtonPrimary*/
+@import "../src/modules/ButtonPrimary/ButtonPrimary";
+/*-------------------------------------------------------------Блок ButtonBurger*/
+@import "../src/modules/ButtonBurger/ButtonBurger";
+/*-------------------------------------------------------------Блок SwitchImages*/
+@import "../src/modules/SwitchImages/SwitchImages";
+/*-------------------------------------------------------------Блок Screen*/
+@import "../src/modules/Screen/Screen";
+/*-------------------------------------------------------------Блок Skills*/
+@import "../src/modules/Skills/Skills";
+/*-------------------------------------------------------------Блок Examples*/
+@import "../src/modules/Examples/Examples";
+/*-------------------------------------------------------------Блок Header*/
+@import "../src/modules/Header/Header";
+/*-------------------------------------------------------------Блок Footer*/
+@import "../src/modules/Footer/Footer";
+/*-------------------------------------------------------------Блок Costs*/
+@import "../src/modules/Costs/Costs";
+/*-------------------------------------------------------------Блок Copyright*/
+@import "../src/modules/Copyright/Copyright";

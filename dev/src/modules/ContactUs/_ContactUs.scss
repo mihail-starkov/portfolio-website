@@ -1,0 +1,37 @@
+@import "../../../vendors/smart-grid/smart-grid";
+
+.ContactUs {
+	display         : flex;
+	justify-content : space-between;
+	
+	&-column {
+		display        : flex;
+		flex-direction : column;
+		
+		&_right {
+			align-items : flex-end;
+			@include col();
+			@include size(4);
+			@include size-md(5);
+			@include sm-block() {
+				width      : auto;
+				margin-top : 20px;
+			}
+			@include size-xs(12)
+			
+		}
+		
+		&_left {
+			@include col();
+			@include size(4);
+			@include size-md(5);
+			@include size-sm(11);
+			@include sm-block() {
+				width : auto;
+			}
+			@include xs(align-self, flex-start);
+		}
+	}
+}
+
+

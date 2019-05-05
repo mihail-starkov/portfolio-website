@@ -1,0 +1,28 @@
+@import "vars";
+@import "../vendors/smart-grid/smart-grid";
+@import "debug";
+
+@include reset();
+
+.container {
+	@include wrapper();
+}
+
+.Page {
+	font-size   : 100%;
+	font-family : $Font-Family;
+}
+
+a {
+	text-decoration : none;
+}
+
+.wrap-header,
+.wrap-screen,
+.wrap-examples {
+	background-color : $bg-color;
+}
+
+.wrap-costs {
+	background : linear-gradient(30deg, #ff8f5a, #ff2f96)
+}

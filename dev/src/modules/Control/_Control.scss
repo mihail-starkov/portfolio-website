@@ -1,0 +1,42 @@
+.Control {
+	display          : flex;
+	align-items      : center;
+	justify-content  : center;
+	position         : absolute;
+	top              : 40%;
+	width            : 60px;
+	height           : 60px;
+	border           : 1px solid transparent;
+	border-radius    : 50%;
+	background-color : #fff;
+	font-size        : 30px;
+	color            : #8993ad;
+	transition       : all .3s linear;
+	cursor           : pointer;
+	box-shadow       : 0 0 20px 0 #00000014;
+	transform        : translateY(-40%);
+	
+	@media screen and (max-width : 1170px) {
+		display : none;
+	}
+	
+	&:hover {
+		background-color : #8993ad;
+		color            : #fff;
+		border           : 1px solid #8993ad;
+	}
+	
+	&:active {
+		background-color : #69738d;
+		color            : #fff;
+		border           : 1px solid #69738d;
+	}
+	
+	&_prev {
+		left : -3%;
+	}
+	
+	&_next {
+		right : -3%;
+	}
+}

@@ -1,0 +1,26 @@
+extends ../src/template
+block vars
+	- var title ='Сайт портфолио'
+	- var classPage ='Page'
+
+block css
+	link(rel="stylesheet" type='text/css' href="./css/style.css")
+
+
+block content
+	div(class="wrap-header")
+			include ../src/modules/Header/Header
+	div(class="wrap-screen")
+			include ../src/modules/Screen/Screen
+	div(class="wrap-skills")
+			include ../src/modules/Skills/Skills
+	div(class="wrap-examples")
+			include ../src/modules/Examples/Examples
+	div(class="wrap-costs")
+			include ../src/modules/Costs/Costs
+	div(class="wrap-footer")
+			include  ../src/modules/Footer/Footer
+	include ../src/modules/Copyright/Copyright
+block scripts
+	script(src="./js/noCalc.js")
+	script(src="./js/scripts.js")

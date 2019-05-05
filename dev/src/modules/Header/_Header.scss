@@ -1,0 +1,64 @@
+@import "../../../vendors/smart-grid/smart-grid";
+
+.Header {
+	display         : flex;
+	justify-content : space-between;
+	align-items     : center;
+	padding-top     : 30px;
+	padding-bottom  : 30px;
+	
+	&-Menu {
+		.Menu-list {
+			display : flex;
+			@include lg-block() {
+				display : none;
+			}
+		}
+		
+		.Menu-item {
+			margin-right : 30px;
+			
+			&:last-child {
+				margin-right : 0;
+			}
+		}
+	}
+	
+	&-Phone {
+		display      : flex;
+		align-items  : center;
+		margin-right : 30px;
+		font-weight  : bold;
+		@include sm-block() {
+			margin-right : 0;
+			color        : #1f1f24;
+		}
+	}
+	
+	& .Phone-icon {
+		display : none;
+		@include sm-block() {
+			display     : flex;
+			order       : 1;
+			margin-left : 40px;
+			width       : 30px;
+			height      : 30px;
+		}
+		@include xs-block() {
+			width       : 15px;
+			height      : 15px;
+			margin-left : 20px;
+		}
+	}
+	
+	&-ContactUs {
+		align-items : center;
+	}
+	
+	&-ButtonDefault {
+		background-color : transparent;
+		@include sm-block() {
+			display : none;
+		}
+	}
+}

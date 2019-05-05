@@ -1,0 +1,29 @@
+@import "../../vars";
+
+.ButtonDefault {
+	font-size        : 1rem;
+	color            : #f53f4f;
+	border           : solid 1px #f82370;
+	background-color : $btn-default-bg-color;
+	padding          : 1rem 3.75rem;
+	cursor           : pointer;
+	transition       : All .3s linear;
+	outline          : none;
+	
+	&:hover {
+		color            : #fff;
+		border           : solid 1px #f82370;
+		background-color : #f82370;
+	}
+	
+	&:active {
+		color            : #fff;
+		border           : solid 1px #f53f4f;
+		
+		background-color : #f53f4f;
+	}
+	
+	&:focus {
+		outline : 1px solid #fc557c;
+	}
+}

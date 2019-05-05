@@ -1,0 +1,54 @@
+@import "../../../vendors/smart-grid/smart-grid";
+
+.Socials {
+	display         : flex;
+	justify-content : space-between;
+	@include xs(align-self, flex-start);
+	
+	&-Icon {
+		display         : flex;
+		justify-content : center;
+		align-items     : center;
+		width           : 30px;
+		height          : 30px;
+		cursor          : pointer;
+		margin-right    : 30px;
+		
+		& .icon {
+			width      : 30px;
+			height     : 30px;
+			transition : fill .5s linear;
+			fill       : #b2b9ca;
+			
+			&-vk:hover {
+				fill : #4d76a1;
+			}
+			
+			&-facebook:hover {
+				fill : #475993;
+			}
+			
+			&-twitter:hover {
+				fill : #03a9f4;
+			}
+			
+			&-instagram {
+				width  : 25px;
+				height : 25px;
+			}
+			
+			&-instagram:hover {
+				fill : #fc557c;
+			}
+			
+			&:focus {
+				outline        : 1px solid #fc557c;
+				outline-offset : 5px;
+			}
+			
+			&:last-child {
+				margin-right : 0;
+			}
+		}
+	}
+}

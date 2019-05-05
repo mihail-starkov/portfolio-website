@@ -1,0 +1,41 @@
+@import "../../../vendors/smart-grid/smart-grid";
+
+.SwitchImages {
+	display         : flex;
+	justify-content : center;
+	margin-bottom   : 100px;
+	@include from($break_lg) {
+		display : none;
+	}
+	@include sm-block() {
+		margin-bottom : 50px;
+	}
+	
+	&-item {
+		display          : flex;
+		width            : 18px;
+		height           : 18px;
+		background-color : #ebebeb;
+		border           : 0;
+		border-radius    : 50%;
+		cursor           : pointer;
+		margin-right     : 30px;
+		transition       : all .3s linear;
+		@include xs-block() {
+			width     : 10px ;
+			height    : 10px;
+		}
+		
+		&:hover {
+			background-color : #ff4e2e;
+		}
+		
+		&:last-child {
+			margin-right : 0;
+		}
+		
+		&_active {
+			background-color : #ff4e2e;
+		}
+	}
+}
