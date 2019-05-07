@@ -26,61 +26,49 @@ const gulp            = require('gulp'),
       tinypng         = require('gulp-tinypng-extended');
 
 //Конфиг проекта (пути)
-const config = {
-  build: {
-    MainDir: './build/',
-    css: {
-      src: './build/css/',
-    },
-    jsMain: {
-      src: './build/js/',
-    },
-    jsLibs: {
-      src: './build/js/libs/',
-    },
-    img: {
-      src: './build/img/',
-    },
-    svg: {
-      src: './build/img/svg/',
-    },
-    fonts: {
-      src: './build/fonts/',
+const paths = {
+  buildDir: './build',
+  devDir: './dev',
+  styles: {
+    scss: [`./dev/pages/**/*.{scss,sass}`],
+    css: `./build/css/`,
+    watch: [
+      `./dev/pages/**/*.{scss,sass}`,
+      `./dev/src/**/*.{scss,sass}`,
+    ],
+  },
+  marking: {
+    pug: [`./dev/pages/**/*.{pug,jade}`],
+    html: `./build/`,
+    watch: [
+      `./dev/pages/**/*.{pug,jade}`,
+      `./dev/src/**/*.{pug,jade}`,
+    ],
+  },
+  scripts: {
+    js: [`./dev/src/**/*.js`],
+    vendorsJs: [
+      `./dev/vendors/secondaryScripts/**/*.js`,
+      `./node_modules/parallax-js/dist/parallax.min.js`,
+      `./node_modules/slick-carousel/slick/slick.min.js`,
+    ],
+    watch: [`./dev/**/*.js`],
+    outputDir: `./build/js/`,
+    json: {
+      watch: [`./data/**/*.json`],
     },
   },
-  dev: {
-    fonts: {
-      src: './dev/fonts/**/*.*',
-    },
-    styleLint: {
-      src: './dev/src/**/*.{scss,sass}',
-    },
-    scss: {
-      src: ['./dev/pages/**/*.scss'],
-      watch: ['./dev/pages/**/*.{scss,sass}', './dev/src/**/*.{scss,sass}'],
-    },
-    pug: {
-      src: './dev/pages/**/*.pug',
-      watch: ['./dev/pages/**/*.pug', './dev/src/**/*.pug'],
-    },
-    jsMain: {
-      src: './dev/src/modules/**/*.js',
-      watch: ['./dev/src/modules/**/*.js'],
-    },
-    jsLibs: {
-      src: './dev/vendors/JSLibs/**/*.js',
-    },
-    img: {
-      src: './dev/img/**/*.{jpg,png}',
-      watch: './dev/img/**/*.{jpg,png}',
-    },
-    svg: {
-      src: './dev/img/**/*.svg',
-      watch: './dev/img/**/*.svg',
-    },
-    json: {
-      watch: './data/**/*.json',
-    },
+  fonts: {
+    srcOut: `./dev/fonts/**/*.`,
+    srcIn: `./build/fonts/`,
+  },
+  img: {
+    sprites: `./dev/img/sprites/**/*.{png,svg}`,
+    images: `./dev/img/**/*.{png,jpg,svg}`,
+    svg: `./dev/img/svg/**/*.svg`,
+    outputDir: `./build/img/`,
+    watchSvg: [`./dev/img/**/*.{svg}`],
+    watch: [`./dev/img/**/*.{png,jpg}`],
   },
 };
 
@@ -127,21 +115,21 @@ gulp.task('grid', function (cb) {
 });
 
 //Линтирование Scss файлов
-gulp.task('styleLint:dev', function () {
-  return gulp.src([config.dev.styleLint.src, '!./dev/vendors/**/*.{scss,sass}'])
+gulp.task('styleLint:dev', () => {
+  return gulp.src(paths.styles.scss)
     .pipe(gulpStylelint({
       fix: 'true',
       console: true,
-      reporters: [
-        
-        {formatter: 'string', console: true},
-      ],
+      reporters: [{
+        formatter: 'string',
+        console: true,
+      }],
     }))
 });
 
 //Обработка стилей при разработке
-gulp.task('styles:dev', function () {
-  return gulp.src(config.dev.scss.src)
+gulp.task('styles:dev', () => {
+  return gulp.src(paths.styles.scss)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
@@ -149,13 +137,13 @@ gulp.task('styles:dev', function () {
       cascade: false,
     }))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(config.build.css.src))
+    .pipe(gulp.dest(paths.styles.css))
     .on('end', browserSync.reload);
 });
 
 //Обработка стилей в продакшен
-gulp.task('styles:prod', function () {
-  return gulp.src(config.dev.scss.src)
+gulp.task('styles:prod', () => {
+  return gulp.src(paths.styles.scss)
     .pipe(sass().on('error', sass.logError))
     .pipe(gcmq())
     .pipe(concat('styles.css'))
@@ -168,40 +156,46 @@ gulp.task('styles:prod', function () {
       compatibility: 'ie8',
     }))
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(config.build.css.src));
+    .pipe(gulp.dest(paths.styles.css));
 });
 
 //Обработка скриптов при разработке
-gulp.task('scripts:dev', function () {
-  return gulp.src(config.dev.jsMain.src)
+gulp.task('scripts:dev', () => {
+  return gulp.src(paths.scripts.js)
     .pipe(concat('scripts.js'))
     .pipe(babel())
-    .pipe(gulp.dest(config.build.jsMain.src))
+    .pipe(gulp.dest(paths.scripts.outputDir))
     .pipe(browserSync.reload({
       stream: true,
     }));
 });
 
+//Копипаст вендорных скриптов при разработке
+gulp.task('scriptsCopy:dev', () => {
+  return gulp.src(paths.scripts.vendorsJs)
+    .pipe(gulp.dest(paths.scripts.outputDir))
+});
+
 //Обработка скриптов в продакшен
-gulp.task('scripts:prod', function () {
-  return gulp.src(config.dev.jsMain.src)
+gulp.task('scripts:prod', () => {
+  return gulp.src(paths.scripts.js)
     .pipe(concat('scripts.js'))
     .pipe(babel())
     .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(config.build.jsMain.src));
+    .pipe(gulp.dest(paths.scripts.outputDir));
 });
 
 //Синхронизация с поднятым веб-сервером
-gulp.task('sync:dev', function () {
+gulp.task('sync:dev', () => {
   browserSync.init({
-    server: config.build.MainDir,
+    server: paths.buildDir,
   });
 });
 
 //Обработка pug файлов при разработке
-gulp.task('pug:dev', function () {
-  return gulp.src(config.dev.pug.src)
+gulp.task('pug:dev', () => {
+  return gulp.src(paths.marking.pug)
     .pipe(pug({
       locals: {
         'content': './data/content.json',
@@ -215,19 +209,19 @@ gulp.task('pug:dev', function () {
       };
     }))
     .pipe(gulpPugBeautify({omit_empty: true}))
-    .pipe(gulp.dest(config.build.MainDir))
+    .pipe(gulp.dest(paths.marking.html))
     .on('end', browserSync.reload);
 });
 
 //Перенос изображений при разработке, - сами изображения не минифицируются
-gulp.task('img:dev', function () {
-  return gulp.src(config.dev.img.src)
-    .pipe(gulp.dest(config.build.img.src));
+gulp.task('img:dev', () => {
+  return gulp.src(paths.img.images)
+    .pipe(gulp.dest(paths.img.outputDir));
 });
 
 //Обработка изображений в продакшен - минификация
-gulp.task('img:prod', function () {
-  return gulp.src(config.dev.img.src)
+gulp.task('img:prod', () => {
+  return gulp.src(paths.img.images)
     .pipe(plumber())
     .pipe(tinypng({
       key: 'l_n597h7l8zqCe0AzFUT_66xEPZysnrr',
@@ -235,12 +229,12 @@ gulp.task('img:prod', function () {
       log: true,
       summarize: true,
     }))
-    .pipe(gulp.dest(config.build.img.src));
+    .pipe(gulp.dest(paths.img.outputDir));
 });
 
 //Обработка SVG, удаляем лишние аттрибуты, минифицируем и добавляем в спрайт
 gulp.task('svg:dev', () => {
-  return gulp.src('./dev/img/svg/*.svg')
+  return gulp.src(paths.img.svg)
     .pipe(svgmin({
       js2svg: {
         pretty: true,
@@ -264,45 +258,40 @@ gulp.task('svg:dev', () => {
         },
       },
     ))
-    .pipe(gulp.dest(config.build.svg.src));
-});
-//Контентные изображения формата SVG переносим
-gulp.task('svg-content:dev', function () {
-  return gulp.src('./dev/img/content/*.svg')
-    .pipe(gulp.dest(config.build.img.src));
+    .pipe(gulp.dest(paths.img.outputDir));
 });
 
 //Переносим шрифты
-gulp.task('fonts:dev', function () {
-  return gulp.src(config.dev.fonts.src)
-    .pipe(gulp.dest(config.build.fonts.src));
+gulp.task('fonts:dev', () => {
+  return gulp.src(paths.fonts.srcOut)
+    .pipe(gulp.dest(paths.fonts.srcIn));
 });
 
 //Очищаем папку build
-gulp.task('clean:dev', function () {
+gulp.task('clean:dev', () => {
   return del([
-    config.build.MainDir,
+    paths.buildDir,
   ]);
 });
 
 //Задача слежения за файлами
-gulp.task('watch:dev', function () {
-  gulp.watch(config.dev.pug.watch, gulp.series('pug:dev'));
-  gulp.watch(config.dev.scss.watch, gulp.series('styles:dev', 'styleLint:dev'));
-  gulp.watch(config.dev.jsMain.watch, gulp.series('scripts:dev'));
-  gulp.watch(config.dev.img.watch, gulp.series('img:dev'));
-  gulp.watch(config.dev.svg.watch, gulp.series('svg:dev'));
-  gulp.watch(config.dev.json.watch, gulp.series('pug:dev'));
+gulp.task('watch:dev', () => {
+  gulp.watch(paths.marking.watch, gulp.series('pug:dev'));//Watcher на pug файлы
+  gulp.watch(paths.styles.watch, gulp.series('styles:dev', 'styleLint:dev'));//Watcher на Scss файлы
+  gulp.watch(paths.scripts.watch, gulp.series('scripts:dev'));//Watcher на скрипты
+  gulp.watch(paths.img.watch, gulp.series('img:dev'));//Watcher на изображения
+  gulp.watch(paths.img.watchSvg, gulp.series('svg:dev'));//Watcher на SVG изображения
+  gulp.watch(paths.scripts.json.watch, gulp.series('pug:dev'));//Watcher на Data файлы
 });
 
 gulp.task('dev', gulp.series('clean:dev',
   gulp.parallel(
     'styleLint:dev',
+    'scriptsCopy:dev',
     'styles:dev',
     'pug:dev',
     'scripts:dev',
     'img:dev',
-    'svg-content:dev',
     'svg:dev',
     'fonts:dev',
   )));
