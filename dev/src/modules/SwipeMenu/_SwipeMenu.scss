@@ -1,3 +1,5 @@
+@import "../../../vendors/smart-grid/smart-grid";
+
 .Swipe {
 	display          : none;
 	align-items      : center;
@@ -22,8 +24,8 @@
 	}
 	
 	&-photo {
-		width           : 100px;
-		height          : 100px;
+		min-width       : 100px;
+		min-height      : 100px;
 		border-radius   : 50%;
 		border          : 2px solid pink;
 		background      : url("../img/content/photo.png") no-repeat 10px 0;
@@ -51,13 +53,7 @@
 	}
 }
 
-
 .Content_active {
 	transform : translateX(30%);
-}
-
-@media screen and (max-width : 464px) {
-	.Content_active {
-		transform : translateX(50%);
-	}
+	@include xs(transform, translateX(50%));
 }
