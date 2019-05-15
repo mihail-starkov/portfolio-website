@@ -51,6 +51,8 @@ const paths = {
       `./dev/vendors/secondaryScripts/**/*.js`,
       `./node_modules/parallax-js/dist/parallax.min.js`,
       `./node_modules/slick-carousel/slick/slick.min.js`,
+      `./node_modules/wowjs/dist/wow.min.js`,
+      `./node_modules/jquery/dist/jquery.min.js`,
     ],
     watch: [`./dev/**/*.js`],
     outputDir: `./build/js/`,
@@ -59,7 +61,7 @@ const paths = {
     },
   },
   fonts: {
-    srcOut: `./dev/fonts/**/*.`,
+    srcOut: `./dev/fonts/**/*.*`,
     srcIn: `./build/fonts/`,
   },
   img: {
@@ -159,6 +161,19 @@ gulp.task('styles:prod', () => {
     .pipe(gulp.dest(paths.styles.css));
 });
 
+gulp.task('styles:copy', () => {
+  return gulp.src([
+    `./node_modules/slick-carousel/slick/slick.scss`,
+  ])
+    .pipe(sass().on('error', sass.logError))
+    .pipe(cleanCss({
+      level: 2,
+      compatibility: 'ie8',
+    }))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest(paths.styles.css))
+});
+
 //Обработка скриптов при разработке
 gulp.task('scripts:dev', () => {
   return gulp.src(paths.scripts.js)
@@ -197,9 +212,7 @@ gulp.task('sync:dev', () => {
 gulp.task('pug:dev', () => {
   return gulp.src(paths.marking.pug)
     .pipe(pug({
-      locals: {
-        'content': './data/content.json',
-      },
+      locals: {},
       pretty: true,
     }))
     .on('error', notify.onError(function (error) {
@@ -289,6 +302,7 @@ gulp.task('dev', gulp.series('clean:dev',
     'styleLint:dev',
     'scriptsCopy:dev',
     'styles:dev',
+    'styles:copy',
     'pug:dev',
     'scripts:dev',
     'img:dev',
