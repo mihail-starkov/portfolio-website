@@ -5,7 +5,8 @@
 		font-size     : 16px;
 		color         : #1f1f24;
 		border-bottom : 1px solid transparent;
-		transition: All .2s linear;
+		transition    : All .2s linear;
+		cursor        : pointer;
 		
 		&:hover {
 			color         : #fc557c;
