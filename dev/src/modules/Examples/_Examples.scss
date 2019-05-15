@@ -30,40 +30,36 @@
 	}
 	
 	&-items {
-		position        : relative;
-		margin-bottom   : 70px;
-		justify-content : center;
+		position : relative;
+		width    : 100%;
 		@include row-flex();
 		@include sm-block() {
 			justify-content : center;
 			margin-bottom   : 50px;
 		}
 		@include xs-block() {
-			margin-bottom : 20px;
+			margin-bottom : 0;
 		}
 	}
 	
 	&-Item {
-		max-width       : 454.9px;
-		flex-direction  : column;
-		justify-content : center;
-		align-items     : center;
-		position        : relative;
-		margin-bottom   : 30px;
+		max-width        : 454.9px;
+		width            : 100%;
+		flex-direction   : column;
+		justify-content  : center;
+		align-items      : center;
+		position         : relative;
+		margin-bottom    : 30px;
+		background-color : #fbfbfb;
 		@include col();
 		@include size(4);
 		@include size-lg(6);
 		@include size-md(6);
-		@include size-sm(12);
-		@include size-xs(12);
-		
-		&:not(&_double) {
-			@include lg(display, none);
-		}
-		
-		&:not(&_single) {
-			@include sm(display, none);
-		}
+		@include xs-block() {
+			margin-right : 0;
+			margin-left  : 0;
+		};
+	@include xs(max-width, 100%);
 		
 		& .Item-image {
 			width         : 100%;
@@ -79,8 +75,14 @@
 			color          : #8993ad;
 			font-weight    : 500;
 			@include lg(font-size, 25px);
+			@include sm(font-size, 20px);
 			@include xs(font-size, 18px);
-			
 		}
 	}
+}
+
+.Slick-carousel {
+	max-width       : 100%;
+	width           : 100%;
+	justify-content : center;
 }
