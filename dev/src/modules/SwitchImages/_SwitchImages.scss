@@ -4,38 +4,41 @@
 	display         : flex;
 	justify-content : center;
 	margin-bottom   : 100px;
-	@include from($break_lg) {
-		display : none;
-	}
 	@include sm-block() {
 		margin-bottom : 50px;
 	}
 	
-	&-item {
+	.slick-active > button {
+		background-color : #ff4e2e;
+		border           : 0;
+	}
+	
+	& li {
+		display         : flex;
+		align-items     : center;
+		justify-content : center;
+		width           : 18px;
+		height          : 18px;
+		margin-right    : 30px;
+		cursor          : pointer;
+		overflow        : hidden;
+		@include xs-block() {
+			width  : 10px;
+			height : 10px;
+		}
+	}
+	
+	& li button {
 		display          : flex;
-		width            : 18px;
-		height           : 18px;
+		min-width        : 100%;
+		min-height       : 100%;
 		background-color : #ebebeb;
 		border           : 0;
 		border-radius    : 50%;
-		cursor           : pointer;
-		margin-right     : 30px;
 		transition       : all .3s linear;
-		@include xs-block() {
-			width     : 10px ;
-			height    : 10px;
-		}
-		
-		&:hover {
-			background-color : #ff4e2e;
-		}
-		
-		&:last-child {
-			margin-right : 0;
-		}
-		
-		&_active {
-			background-color : #ff4e2e;
-		}
+	}
+	
+	& li:last-child button {
+		margin-right : 0;
 	}
 }
