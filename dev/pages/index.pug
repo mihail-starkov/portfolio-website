@@ -4,6 +4,7 @@ block vars
 	- var classPage ='Page'
 
 block css
+	link(rel="stylesheet" type="text/css" href="./css/slick.min.css")
 	link(rel="stylesheet" type='text/css' href="./css/style.css")
 
 
@@ -27,5 +28,8 @@ block content
 			include ../src/modules/SwipeMenu/SwipeMenu
 		include ../src/modules/ButtonGoToTop/ButtonGoToTop
 block scripts
+	script(src="./js/jquery.min.js")
+	script(src="./js/slick.min.js")
 	script(src="./js/parallax.min.js")
+	script(src="./js/carousel.js")
 	script(src="./js/scripts.js")
