@@ -32,6 +32,10 @@ const paths = {
   styles: {
     scss: [`./dev/pages/**/*.{scss,sass}`],
     css: `./build/css/`,
+    vendorsCss: [
+      './node_modules/wowjs/css/libs/animate.css',
+      './node_modules/slick-carousel/slick/slick.scss',
+    ],
     watch: [
       `./dev/pages/**/*.{scss,sass}`,
       `./dev/src/**/*.{scss,sass}`,
@@ -161,10 +165,9 @@ gulp.task('styles:prod', () => {
     .pipe(gulp.dest(paths.styles.css));
 });
 
-gulp.task('styles:copy', () => {
-  return gulp.src([
-    `./node_modules/slick-carousel/slick/slick.scss`,
-  ])
+//Тас обрабатывающий стили сторонних библиотек
+gulp.task('VendorsStyles:copy', () => {
+  return gulp.src(paths.styles.vendorsCss)
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCss({
       level: 2,
@@ -186,9 +189,15 @@ gulp.task('scripts:dev', () => {
 });
 
 //Копипаст вендорных скриптов при разработке
-gulp.task('scriptsCopy:dev', () => {
+gulp.task('VendorsScripts:copy', () => {
   return gulp.src(paths.scripts.vendorsJs)
+    .pipe(babel())
+    //.pipe(uglify())
+    //.pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(paths.scripts.outputDir))
+    .pipe(browserSync.reload({
+      stream: true,
+    }));
 });
 
 //Обработка скриптов в продакшен
@@ -300,9 +309,9 @@ gulp.task('watch:dev', () => {
 gulp.task('dev', gulp.series('clean:dev',
   gulp.parallel(
     'styleLint:dev',
-    'scriptsCopy:dev',
+    'VendorsScripts:copy',
     'styles:dev',
-    'styles:copy',
+    'VendorsStyles:copy',
     'pug:dev',
     'scripts:dev',
     'img:dev',
