@@ -48,4 +48,3 @@ const swipeMenu = {
       });
   },
 };
-swipeMenu.init();
