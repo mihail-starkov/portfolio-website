@@ -1,25 +1,11 @@
 @import "../../../vendors/smart-grid/smart-grid";
 
-.wrap-screen {
-	overflow-x      : hidden;
-	background      : #fbfbfb url("../img/content/figure.png") no-repeat right bottom;
-	background-size : contain;
-	@include sm-block() {
-		background-size     : auto;
-		background-position : 50% 12%;
-	}
-	@include xs-block() {
-		background-size     : auto;
-		background-position : 50% 24%;
-	}
-}
-
 .Screen {
 	display         : flex;
 	align-items     : center;
 	justify-content : space-between;
 	padding-top     : 27px;
-	
+	z-index         : 9;
 	
 	@include sm-block() {
 		flex-direction : column;
