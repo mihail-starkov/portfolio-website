@@ -78,4 +78,3 @@ const menu = {
     transLink.classList.add(this.settings.menuLinkModActiveClass);
   },
 };
-menu.init();
