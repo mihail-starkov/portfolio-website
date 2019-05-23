@@ -40,5 +40,3 @@ const buttonScrollingPage = {
     }
   },
 };
-
-buttonScrollingPage.init();
