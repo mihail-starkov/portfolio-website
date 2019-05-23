@@ -2,8 +2,6 @@
 @import "../src/fonts";
 /*-------------------------------------------------------------Подключаем основные стили*/
 @import "../src/general";
-/*-------------------------------------------------------------Подключаем иконочные шрифты*/
-/*@import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";*/
 /*-------------------------------------------------------------Блок Menu*/
 @import "../src/modules/Menu/Menu";
 /*-------------------------------------------------------------Блок ContactUs*/
@@ -40,5 +38,7 @@
 @import "../src/modules/SwipeMenu/SwipeMenu";
 /*-------------------------------------------------------------Блок ButtonGoToTop*/
 @import "../src/modules/ButtonGoToTop/ButtonGoToTop";
+/*-------------------------------------------------------------Блок FlyingElements*/
+@import "../src/modules/FlyingElement/FlyingElement";
 /*-------------------------------------------------------------Блок Copyright*/
 @import "../src/modules/Copyright/Copyright";
