@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+    <title>Сайт портфолио</title><!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="Содержимое мета-тега Description">
+    <link rel="stylesheet" type="text/css" href="./css/slick.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css"><!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
+  </head>
+  <body class="Page">
+    <div class="wrap-content">
+      <div class="Content">
+        <div class="wrap-header">
+          <header class="Header container">
+            <nav class="Menu Header-Menu">
+              <button class="ButtonBurger Header-ButtonBurger"><span class="ButtonBurger-line"></span></button>
+              <ul class="Menu-list">
+                <li class="Menu-item"><a class="Menu-link" href="#" data-section="Skills">Услуги</a></li>
+                <li class="Menu-item"><a class="Menu-link" href="#" data-section="Examples">Портфолио</a></li>
+                <li class="Menu-item"><a class="Menu-link" href="#" data-section="Costs">Стоимость</a></li>
+              </ul>
+            </nav>
+            <div class="ContactUs Header-ContactUs"><a class="Phone Header-Phone" href="tel:+7 (499) 995-77-55">
+              <svg class="icon icon-phone fas fa-phone Phone-icon">
+                <use xlink:href="./img/symbol/sprite.svg#phone"></use>
+              </svg></a>
+              <button class="ButtonDefault Header-ButtonDefault" type="button">Заказать звонок</button>
+            </div>
+          </header>
+        </div>
+        <div class="wrap-screen">
+          <div class="Screen container">
+            <section class="Screen-section">
+              <h1 class="Screen-title wow slideInLeft" data-wow-duration="2s"> Дмитрий Алексеев</h1>
+              <h2 class="Screen-subTitle wow bounceInLeft" data-wow-duration="3s">Frontend-разработчик и веб-верстальщик</h2>
+              <button class="ButtonPrimary Screen-ButtonPrimary wow bounceInUp center" type="button">Узнать больше</button>
+            </section><img class="Screen-image" src="img/content/portrait.png" alt="Фото разработчика">
+          </div>
+          <canvas id="FlyingElements"></canvas>
+        </div>
+        <div class="wrap-skills">
+          <section class="Skills container" id="Skills">
+            <h2 class="Skills-heading wow bounceInUp center">Что я делаю</h2>
+            <div class="Skills-items">
+              <div class="Skills-Item wow slideInLeft" data-wow-duration="2s"><img class="Item-image" src="./img/content/coding-icon.png" alt="">
+                <div class="Item-description">Вёрстка лендинг–страниц и сайтов любой сложности</div>
+              </div>
+              <div class="Skills-Item wow slideInLeft" data-wow-duration="2s"><img class="Item-image" src="./img/content/responsive-icon.png" alt="">
+                <div class="Item-description">Адаптивная вёрстка под все браузеры и устройства</div>
+              </div>
+              <div class="Skills-Item wow slideInRight" data-wow-duration="2s"><img class="Item-image" src="./img/content/programming-icon.png" alt="">
+                <div class="Item-description">Frontend–разработка и программирование</div>
+              </div>
+              <div class="Skills-Item wow slideInRight" data-wow-duration="2s"><img class="Item-image" src="./img/content/tools-and-utensils-icon.png" alt="">
+                <div class="Item-description">Исправление и доработка существующей вёрстки</div>
+              </div>
+            </div>
+            <button class="ButtonPrimary Skills-ButtonPrimary wow bounceInUp center" type="button">Узнать стоимость</button>
+          </section>
+        </div>
+        <div class="wrap-examples">
+          <section class="Examples container" id="Examples">
+            <h2 class="Examples-heading wow bounceInUp center">Примеры моих работ</h2>
+            <div class="Examples-items">
+              <div class="Slick-carousel">
+                <div class="Item Examples-Item">
+                  <div class="Item-inner"><img class="Item-image" src="./img/content/Image_1.png" alt="Превью сайта психолога Веры Антоновой"></div>
+                  <div class="Item-description">Сайт психолога Веры Антоновой</div>
+                </div>
+                <div class="Item Examples-Item Examples-Item_double">
+                  <div class="Item-inner"><img class="Item-image" src="./img/content/Image_2.png" alt="Превью сайта магазина 'детской одежды'"></div>
+                  <div class="Item-description">Сайт магазина детской одежды</div>
+                </div>
+                <div class="Item Examples-Item">
+                  <div class="Item-inner"><img class="Item-image" src="./img/content/Image_3.png" alt="Превью сайта магазина 'Рыболов'"></div>
+                  <div class="Item-description">Сайт магазина «Рыболов»</div>
+                </div>
+                <div class="Item Examples-Item">
+                  <div class="Item-inner"><img class="Item-image" src="./img/content/Image_3.png" alt="Превью сайта магазина 'Рыболов'"></div>
+                  <div class="Item-description">Сайт магазина «Рыболов»</div>
+                </div>
+              </div>
+              <button class="Control Control_prev">
+                <svg class="icon icon-angle-left Control-icon">
+                  <use xlink:href="./img/symbol/sprite.svg#angle-left"></use>
+                </svg>
+              </button>
+              <button class="Control Control_next">
+                <svg class="icon icon-angle-left Control-icon">
+                  <use xlink:href="./img/symbol/sprite.svg#angle-left"></use>
+                </svg>
+              </button>
+            </div>
+            <button class="ButtonPrimary Examples-ButtonPrimary wow bounceInUp center" type="button">Заказать проект</button>
+          </section>
+        </div>
+        <div class="wrap-costs">
+          <section class="Costs container" id="Costs">
+            <div class="Costs-inner">
+              <h2 class="Costs-title wow slideInLeft" data-wow-duration="2s">Адаптивная вёрстка под все устройства  и&nbsp;браузеры&nbsp;от 1000 рублей всего за&nbsp;4&nbsp;часа.<sup>*</sup></h2>
+              <p class="Costs-subTitle wow slideInRight" data-wow-duration="2s">Срок и стоимость могут отличаться от заявленных и рассчитываются  индивидуально,в&nbsp;зависимости от сложности задач.</p>
+            </div>
+          </section>
+        </div>
+        <div class="wrap-footer">
+          <footer class="Footer container">
+            <div class="Footer-inner">
+              <nav class="Menu Footer-Menu">
+                <ul class="Menu-list">
+                  <li class="Menu-item"><a class="Menu-link" href="#" data-section="Skills">Услуги</a></li>
+                  <li class="Menu-item"><a class="Menu-link" href="#" data-section="Examples">Портфолио</a></li>
+                  <li class="Menu-item"><a class="Menu-link" href="#" data-section="Costs">Стоимость</a></li>
+                </ul>
+              </nav>
+              <div class="ContactUs-column ContactUs-column_left"><a class="Phone Footer-Phone" href="tel:+7 (499) 995-77-55">
+                <svg class="icon icon-phone Phone-icon">
+                  <use xlink:href="./img/symbol/sprite.svg#phone"></use>
+                </svg></a><a class="Mail Footer-Mail" href="mailto:dmitry@alekseev.com">
+                <svg class="icon icon-envelope Mail-icon">
+                  <use xlink:href="./img/symbol/sprite.svg#envelope"></use>
+                </svg></a></div>
+              <div class="ContactUs-column ContactUs-column_right">
+                <button class="ButtonDefault Footer-ButtonDefault" type="button">Заказать звонок</button>
+                <div class="Socials">
+                  <div class="Socials-Icon">
+                    <svg class="icon icon-vk ">
+                      <use xlink:href="./img/symbol/sprite.svg#vk"></use>
+                    </svg>
+                  </div>
+                  <div class="Socials-Icon">
+                    <svg class="icon icon-facebook ">
+                      <use xlink:href="./img/symbol/sprite.svg#facebook"></use>
+                    </svg>
+                  </div>
+                  <div class="Socials-Icon">
+                    <svg class="icon icon-twitter ">
+                      <use xlink:href="./img/symbol/sprite.svg#twitter"></use>
+                    </svg>
+                  </div>
+                  <div class="Socials-Icon">
+                    <svg class="icon icon-instagram ">
+                      <use xlink:href="./img/symbol/sprite.svg#instagram"></use>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+        <div class="Copyright">&copy;Дмитрий Алексеев, 2016-2018</div>
+      </div>
+      <div class="wrap-swipe">
+        <aside class="Swipe">
+          <div class="Swipe-photo"></div>
+          <nav class="Menu Swipe-Menu">
+            <ul class="Menu-list">
+              <li class="Menu-item"><a class="Menu-link" href="#" data-section="Skills">Услуги</a></li>
+              <li class="Menu-item"><a class="Menu-link" href="#" data-section="Examples">Портфолио</a></li>
+              <li class="Menu-item"><a class="Menu-link" href="#" data-section="Costs">Стоимость</a></li>
+            </ul>
+          </nav>
+        </aside>
+      </div>
+      <button class="ButtonGoToTop" aria-label="Переход наверх страницы" id="ButtonTop">
+        <svg class="icon icon-up-arrow ButtonGoToTop-icon">
+          <use xlink:href="./img/symbol/sprite.svg#up-arrow"></use>
+        </svg>
+      </button>
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/slick.min.js"></script>
+    <script src="./js/wow.min.js"></script>
+    <script src="./js/parallax.min.js"></script>
+    <script src="./js/scripts.js"></script>
+    <script src="./js/common.js"></script>
+  </body>
+</html>
