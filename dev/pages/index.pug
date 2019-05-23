@@ -5,7 +5,6 @@ block vars
 
 block css
 	link(rel="stylesheet" type="text/css" href="./css/slick.min.css")
-	link(rel="stylesheet" type="text/css" href="./css/animate.min.css")
 	link(rel="stylesheet" type='text/css' href="./css/style.css")
 
 
@@ -16,7 +15,6 @@ block content
 				include ../src/modules/Header/Header
 			div(class="wrap-screen")
 				include ../src/modules/Screen/Screen
-				canvas(id="FlyingElements")
 			div(class="wrap-skills")
 				include ../src/modules/Skills/Skills
 			div(class="wrap-examples")
@@ -32,7 +30,6 @@ block content
 block scripts
 	script(src="./js/jquery.min.js")
 	script(src="./js/slick.min.js")
-	script(src="./js/wow.min.js")
 	script(src="./js/parallax.min.js")
+	script(src="./js/carousel.js")
 	script(src="./js/scripts.js")
-	script(src="./js/common.js")
