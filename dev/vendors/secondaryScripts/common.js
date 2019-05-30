@@ -5,35 +5,46 @@ window.onload = () => {
   menu.init();
   buttonScrollingPage.init();
   ButtonBurger.init();
-  AnimateBg.init({
+  let animateBg = new AnimateBg();
+  animateBg.init({
     canvasId: 'FlyingElements',
-    colorsGradient: [
+    amountElements: {
+      min: 5,
+      max: 15,
+    },
+    arrCoeffs: [0.8, -0.8, 0.2, -0.2],
+    arrObjsColors: [
       {
         firstColor: '#ff2f96',
         secondColor: '#ff8f5a',
       },
       {
-        firstColor: '#ff8f5a',
-        secondColor: '#ff2f96',
-      },
-      {
-        firstColor: '#7786ff',
-        secondColor: '#1e46ff',
-      },
-      {
-        firstColor: '#ff2f96',
-        secondColor: '#d700a0',
-      },
-      {
-        firstColor: '#ff8f0c',
-        secondColor: '#ff96ae',
-      },
-      {
-        firstColor: '#ff001b',
-        secondColor: '#ff6471',
+        firstColor: '#FF0000',
+        secondColor: '#ff5a5b',
       },
     ],
   });
+  let animateBg2 = new AnimateBg();
+  animateBg2.init({
+    canvasId: 'FlyingElements2',
+    amountElements: {
+      min: 10,
+      max: 15,
+    },
+    arrCoeffs: [0.8, -0.8, 0.2, -0.2],
+    arrObjsColors: [
+      {
+        firstColor: '#dae3ff',
+        secondColor: '#dae3ff',
+      },
+    ],
+    arrWords: [
+      '<DIV>', '{ }', '</>', '#', 'JS', 'Json', 'Html',
+      'CSS', 'Pug', 'Sass', 'Gulp', 'Scss',
+      'SVG', 'Less', 'PHP',
+    ],
+  });
+  Popup.init();
   
   const wow = new WOW({
     boxClass: 'wow',      // animated element css class (default is wow)
