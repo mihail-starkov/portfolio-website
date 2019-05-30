@@ -6,6 +6,7 @@
 	justify-content : center;
 	padding-top     : 86px;
 	padding-bottom  : 86px;
+	z-index         : 999;
 	@include sm-block() {
 		padding-top    : 50px;
 		padding-bottom : 50px;
