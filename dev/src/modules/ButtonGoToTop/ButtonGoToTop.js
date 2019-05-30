@@ -7,6 +7,7 @@ const buttonScrollingPage = {
    */
   settings: {
     buttonId: 'ButtonTop',
+    buttonModShowClass: 'ButtonGoToTop_show',
   },
   /**
    * Метод инициализации скрипта
@@ -34,9 +35,9 @@ const buttonScrollingPage = {
   isShowButton() {
     const btnTop = document.getElementById(`${this.settings.buttonId}`);
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      btnTop.style.display = 'block';
+      btnTop.classList.add(this.settings.buttonModShowClass);
     } else {
-      btnTop.style.display = 'none';
+      btnTop.classList.remove(this.settings.buttonModShowClass);
     }
   },
 };
