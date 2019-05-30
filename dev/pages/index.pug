@@ -17,11 +17,14 @@ block content
 			div(class="wrap-screen")
 				include ../src/modules/Screen/Screen
 				canvas(id="FlyingElements")
+			div(class="wrap-mainTitle")
+				include ../src/modules/MainTitle/MainTitle
 			div(class="wrap-skills")
 				include ../src/modules/Skills/Skills
 			div(class="wrap-examples")
 				include ../src/modules/Examples/Examples
 			div(class="wrap-costs")
+				canvas(id="FlyingElements2")
 				include ../src/modules/Costs/Costs
 			div(class="wrap-footer")
 				include  ../src/modules/Footer/Footer
@@ -33,7 +36,6 @@ block scripts
 	script(src="./js/jquery.min.js")
 	script(src="./js/slick.min.js")
 	script(src="./js/wow.min.js")
-	script(src="./js/parallax.min.js")
 	script(src="./js/scripts.js")
 	script(src="./js/common.js")
 
