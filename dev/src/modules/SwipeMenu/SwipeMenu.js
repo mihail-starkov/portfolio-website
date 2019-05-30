@@ -20,8 +20,8 @@ const swipeMenu = {
     menuLinkClass: 'Menu-link',
     swipeClass: 'Swipe',
     swipeModActiveClass: 'Swipe_active',
-    buttonBurgerClass: 'ButtonBurger',
-    buttonBurgerModActiveClass: 'ButtonBurger_active',
+    buttonBurgerClass: 'Header-ButtonBurger',
+    buttonBurgerModHideClass: 'ButtonBurger_hide',
     contentClass: 'Content',
     contentModActiveClass: 'Content_active',
   },
@@ -40,7 +40,7 @@ const swipeMenu = {
             .classList.remove(this.settings.swipeModActiveClass);
           document
             .querySelector(`.${this.settings.buttonBurgerClass}`)
-            .classList.remove(this.settings.buttonBurgerModActiveClass);
+            .classList.remove(this.settings.buttonBurgerModHideClass);
           document
             .querySelector(`.${this.settings.contentClass}`)
             .classList.remove(this.settings.contentModActiveClass);

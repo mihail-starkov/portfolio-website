@@ -49,11 +49,18 @@
 		
 		.Menu-link {
 			font-size : 20px;
+			
 			&_active {
 				color         : #fc557c;
 				border-bottom : 1px solid #fc557c;
 			}
 		}
+	}
+	
+	&-ButtonBurger {
+		position : absolute;
+		top      : 20px;
+		right    : 20px;
 	}
 }
 
