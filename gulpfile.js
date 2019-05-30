@@ -53,7 +53,6 @@ const paths = {
     js: [`./dev/src/**/*.js`],
     vendorsJs: [
       `./dev/vendors/secondaryScripts/**/*.js`,
-      `./node_modules/parallax-js/dist/parallax.min.js`,
       `./node_modules/slick-carousel/slick/slick.min.js`,
       `./node_modules/wowjs/dist/wow.min.js`,
       `./node_modules/jquery/dist/jquery.min.js`,
