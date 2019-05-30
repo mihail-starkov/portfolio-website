@@ -10,6 +10,7 @@
 	background-color : transparent;
 	cursor           : pointer;
 	border           : 0;
+	transition       : .5s ease;
 	
 	&:focus {
 		outline : none;
@@ -69,5 +70,13 @@
 	
 	&_active &-line:after {
 		transform : rotate(-45deg);
+	}
+	
+	&_hide {
+		transform : translateY(-400%);
+	}
+	
+	&_active:hover {
+		transform : rotate(90deg);
 	}
 }

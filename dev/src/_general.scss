@@ -37,12 +37,11 @@ a {
 	position        : relative;
 	z-index         : 999;
 	@include sm-block() {
-		background-size     : auto;
-		background-position : 50% 12%;
+		background-size : auto;
 	}
 	@include xs-block() {
-		background-size     : auto;
-		background-position : 50% 24%;
+		background-size     : cover;
+		background-position : 50% 50%;
 	}
 }
 
@@ -53,6 +52,7 @@ a {
 .wrap-costs {
 	background : linear-gradient(30deg, #ff8f5a, #ff2f96);
 	position   : relative;
+	z-index    : -2;
 }
 
 .wrap-content {
@@ -64,11 +64,11 @@ a {
 	transition : .6s;
 	position   : relative;
 	z-index    : 0;
-	filter: brightness(1);
+	filter     : brightness(1);
 	
 	
 	&_active {
-		filter: brightness(.8);
+		filter    : brightness(.8);
 		transform : translateX(30%);
 		@include xs(transform, translateX(50%))
 	}
