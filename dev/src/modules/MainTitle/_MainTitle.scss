@@ -1,0 +1,9 @@
+@import "../../../vendors/smart-grid/smart-grid";
+
+.MainTitle {
+	display : none;
+	margin-top : 20px;
+	@include sm-block() {
+		display : flex;
+	}
+}
