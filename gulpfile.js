@@ -30,32 +30,32 @@ const paths = {
   buildDir: './build',
   devDir: './dev',
   styles: {
-    scss: [`./dev/pages/**/*.{scss,sass}`],
-    css: `./build/css/`,
-    vendorsCss: [
-      './node_modules/wowjs/css/libs/animate.css',
-      './node_modules/slick-carousel/slick/slick.scss',
-    ],
-    watch: [
+    scss: [
+      `./node_modules/wowjs/css/libs/animate.css`,
+      `./node_modules/slick-carousel/slick/slick.scss`,
       `./dev/pages/**/*.{scss,sass}`,
-      `./dev/src/**/*.{scss,sass}`,
+    ],
+    css: `./build/css/`,
+    watch: [
+      `./dev/**/*.{scss,sass}`,
     ],
   },
   marking: {
     pug: [`./dev/pages/**/*.{pug,jade}`],
     html: `./build/`,
     watch: [
-      `./dev/pages/**/*.{pug,jade}`,
-      `./dev/src/**/*.{pug,jade}`,
+      `./dev/**/*.{pug,jade}`,
     ],
   },
   scripts: {
-    js: [`./dev/src/**/*.js`],
-    vendorsJs: [
+    js: [
+      `./dev/src/**/*.js`,
       `./dev/vendors/secondaryScripts/**/*.js`,
+    ],
+    vendorsJs: [
+      `./node_modules/jquery/dist/jquery.min.js`,
       `./node_modules/slick-carousel/slick/slick.min.js`,
       `./node_modules/wowjs/dist/wow.min.js`,
-      `./node_modules/jquery/dist/jquery.min.js`,
     ],
     watch: [`./dev/**/*.js`],
     outputDir: `./build/js/`,
@@ -121,7 +121,7 @@ gulp.task('grid', function (cb) {
 
 //Линтирование Scss файлов
 gulp.task('styleLint:dev', () => {
-  return gulp.src(paths.styles.scss)
+  return gulp.src(`./dev/pages/**/*.{scss,sass}`)
     .pipe(gulpStylelint({
       fix: 'true',
       console: true,
@@ -137,11 +137,13 @@ gulp.task('styles:dev', () => {
   return gulp.src(paths.styles.scss)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
+    .pipe(concat('style.css'))
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false,
     }))
     .pipe(sourcemaps.write())
+    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(paths.styles.css))
     .on('end', browserSync.reload);
 });
@@ -150,8 +152,8 @@ gulp.task('styles:dev', () => {
 gulp.task('styles:prod', () => {
   return gulp.src(paths.styles.scss)
     .pipe(sass().on('error', sass.logError))
+    .pipe(concat('style.css'))
     .pipe(gcmq())
-    .pipe(concat('styles.css'))
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false,
@@ -164,35 +166,12 @@ gulp.task('styles:prod', () => {
     .pipe(gulp.dest(paths.styles.css));
 });
 
-//Тас обрабатывающий стили сторонних библиотек
-gulp.task('VendorsStyles:copy', () => {
-  return gulp.src(paths.styles.vendorsCss)
-    .pipe(sass().on('error', sass.logError))
-    .pipe(cleanCss({
-      level: 2,
-      compatibility: 'ie8',
-    }))
-    .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(paths.styles.css))
-});
-
 //Обработка скриптов при разработке
 gulp.task('scripts:dev', () => {
   return gulp.src(paths.scripts.js)
     .pipe(concat('scripts.js'))
     .pipe(babel())
-    .pipe(gulp.dest(paths.scripts.outputDir))
-    .pipe(browserSync.reload({
-      stream: true,
-    }));
-});
-
-//Копипаст вендорных скриптов при разработке
-gulp.task('VendorsScripts:copy', () => {
-  return gulp.src(paths.scripts.vendorsJs)
-    .pipe(babel())
-    //.pipe(uglify())
-    //.pipe(rename({suffix: '.min'}))
+    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(paths.scripts.outputDir))
     .pipe(browserSync.reload({
       stream: true,
@@ -207,6 +186,17 @@ gulp.task('scripts:prod', () => {
     .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(paths.scripts.outputDir));
+});
+
+//Копипаст вендорных скриптов при разработке
+gulp.task('VendorsScripts:copy', () => {
+  return gulp.src(paths.scripts.vendorsJs)
+    .pipe(babel())
+    .pipe(uglify())
+    .pipe(gulp.dest(paths.scripts.outputDir))
+    .pipe(browserSync.reload({
+      stream: true,
+    }));
 });
 
 //Синхронизация с поднятым веб-сервером
@@ -234,6 +224,20 @@ gulp.task('pug:dev', () => {
     .on('end', browserSync.reload);
 });
 
+//Обработка pug файлов при разработке
+gulp.task('pug:prod', () => {
+  return gulp.src(paths.marking.pug)
+    .pipe(pug())
+    .on('error', notify.onError(function (error) {
+      return {
+        title: 'Pug',
+        message: error.message,
+      };
+    }))
+    .pipe(gulp.dest(paths.marking.html))
+    .on('end', browserSync.reload);
+});
+
 //Перенос изображений при разработке, - сами изображения не минифицируются
 gulp.task('img:dev', () => {
   return gulp.src(paths.img.images)
@@ -244,12 +248,12 @@ gulp.task('img:dev', () => {
 gulp.task('img:prod', () => {
   return gulp.src(paths.img.images)
     .pipe(plumber())
-    .pipe(tinypng({
-      key: 'l_n597h7l8zqCe0AzFUT_66xEPZysnrr',
-      sigFile: './dev/img/.tinypng-sigs',
-      log: true,
-      summarize: true,
-    }))
+    //.pipe(tinypng({
+      //key: 'l_n597h7l8zqCe0AzFUT_66xEPZysnrr',
+     // sigFile: './dev/img/.tinypng-sigs',
+     // log: true,
+     // summarize: true,
+    //}))
     .pipe(gulp.dest(paths.img.outputDir));
 });
 
@@ -310,7 +314,6 @@ gulp.task('dev', gulp.series('clean:dev',
     'styleLint:dev',
     'VendorsScripts:copy',
     'styles:dev',
-    'VendorsStyles:copy',
     'pug:dev',
     'scripts:dev',
     'img:dev',
@@ -319,7 +322,15 @@ gulp.task('dev', gulp.series('clean:dev',
   )));
 
 gulp.task('build', gulp.series('clean:dev',
-  gulp.parallel('styles:prod', 'pug:dev', 'scripts:prod', 'img:prod', 'svg:dev', 'fonts:dev')));
+  gulp.parallel(
+    'styles:prod',
+    'pug:prod',
+    'scripts:prod',
+    'VendorsScripts:copy',
+    'img:prod',
+    'svg:dev',
+    'fonts:dev',
+  )));
 
 gulp.task('default', gulp.series('dev',
   gulp.parallel('watch:dev', 'sync:dev'),

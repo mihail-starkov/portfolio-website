@@ -22,6 +22,7 @@
 		}
 		
 		&_left {
+			align-items : baseline;
 			@include col();
 			@include size(4);
 			@include size-md(5);
