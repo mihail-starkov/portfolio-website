@@ -101,13 +101,16 @@ const Popup = {
    * @param {Event} e Событие по кнопке
    */
   hideElement(e) {
-    this.classList.add('Popup-text_hide');
-    setTimeout(() => {
-      this.innerHTML = '<label>c&nbsp;<input class="Popup-time" type="time" name="fromTime" min="00:00" max="23:59" value="09:00"></label><label>&nbsp;до&nbsp;<input class="Popup-time" type="time" name="toTime" min="00:00" max="23:59" value="22:00"></label>';
-      this.classList.remove(`Popup-text_hide`);
-      this.classList.add(`Popup-text_show`);
-    }, 500);
-    this.removeEventListener('click', this.hideElement);
+    if(e.target.classList.contains('Popup-text')){
+      e.target.classList.add('Popup-text_hide');
+      setTimeout(() => {
+        e.target.innerHTML = '<label>c&nbsp;<input class="Popup-time" type="time" name="fromTime" min="00:00" max="23:59" value="09:00"></label><label>&nbsp;до&nbsp;<input class="Popup-time" type="time" name="toTime" min="00:00" max="23:59" value="22:00"></label>';
+        e.target.classList.remove(`Popup-text_hide`);
+        e.target.classList.add(`Popup-text_show`);
+      }, 500);
+      e.target.removeEventListener('click', this.hideElement);
+    }
+
   },
   createForm(e) {
     let popup = document.createElement('div');
@@ -166,23 +169,6 @@ const Popup = {
     let row = document.createElement('div');
     row.classList.add('Popup-row');
     form.appendChild(row);
-    
-    let label2 = document.createElement('label');
-    label2.innerHTML = '&nbsp;до&nbsp;';
-    
-    let inputTime2 = document.createElement('input');
-    inputTime2.classList.add('Popup-time');
-    inputTime2.setAttribute('type', 'time');
-    inputTime2.setAttribute('name', 'toTime');
-    inputTime2.setAttribute('min', '00:00');
-    inputTime2.setAttribute('max', '23:59');
-    inputTime2.setAttribute('value', '22:00');
-    inputTime2.addEventListener('change', (e) => {
-      if (e.target.value.length === 1) {
-        inputTime.value = '0' + e.target.value;
-      }
-    });
-    label2.appendChild(inputTime2);
     
     let btnSend = document.createElement('button');
     btnSend.setAttribute('type', 'submit');
