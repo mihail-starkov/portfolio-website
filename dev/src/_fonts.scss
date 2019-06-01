@@ -4,6 +4,7 @@
 @font-face {
 	font-family : Roboto;
 	font-style  : normal;
+	font-display: auto;
 	font-weight : 400;
 	src         : url('../fonts/Roboto/roboto-v19-latin_cyrillic-regular.eot'); /* IE9 Compat Modes */
 	src         : local('Roboto'), local('Roboto-Regular'),
@@ -14,6 +15,7 @@
 @font-face {
 	font-family : Roboto;
 	font-style  : normal;
+	font-display: auto;
 	font-weight : 700;
 	src         : url('../fonts/Roboto/roboto-v19-latin_cyrillic-700.eot'); /* IE9 Compat Modes */
 	src         : local('Roboto Bold'), local('Roboto-Bold'),
@@ -24,6 +26,7 @@
 @font-face {
 	font-family : Roboto;
 	font-style  : normal;
+	font-display: auto;
 	font-weight : 900;
 	src         : url('../fonts/Roboto/roboto-v19-latin_cyrillic-900.eot'); /* IE9 Compat Modes */
 	src         : local('Roboto Black'), local('Roboto-Black'),
