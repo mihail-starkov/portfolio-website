@@ -32,7 +32,7 @@ const ButtonBurger = {
       return document.querySelector(`.${this.ContentClass}`)
     },
     ContentModActiveClass: 'Content_active',
-    keys: {37: 1, 38: 1, 39: 1, 40: 1},
+    keys: [37, 38, 39, 40],
   },
   /**
    * Метод инициализации
@@ -80,11 +80,10 @@ const ButtonBurger = {
   },
   /**
    * Метод проверяет, если была ли нажата одна из клавиш массива keys
-   * @param {Event} e Событие при нажатии на кнопку
    * @return {boolean} false для отключения  и отмены действия нажатой клавиши
    */
   preventDefaultForScrollKeys(e) {
-    if (this.settings.keys[e.keyCode]) {
+    if (this.settings.keys.indexOf(e.keyCode)) {
       this.preventDefault(e);
       return false;
     }
@@ -99,7 +98,7 @@ const ButtonBurger = {
     window.onwheel = this.preventDefault; // modern standard
     window.onmousewheel = document.onmousewheel = this.preventDefault; // older browsers, IE
     window.ontouchmove = this.preventDefault; // mobile
-    document.onkeydown = this.preventDefaultForScrollKeys;
+    document.onkeydown = (e)=> this.preventDefaultForScrollKeys.call(this, e);
   },
   /**
    * Метод включения скролла на странице
