@@ -1,6 +1,6 @@
 'use strict';
 
-const Popup = {
+const popup = {
   /**
    * DTO Обьект с настройками по умолчанию
    * @param {string} maskPhoneId CSS Id для поля ввода
