@@ -97,11 +97,11 @@ const popup = {
     
   },
   /**
-   * Метод создаём Popup
+   * Метод, скрывает элемент и показывает другие элементы
    * @param {Event} e Событие по кнопке
    */
   hideElement(e) {
-    if(e.target.classList.contains('Popup-text')){
+    if (e.target.classList.contains('Popup-text')) {
       e.target.classList.add('Popup-text_hide');
       setTimeout(() => {
         e.target.innerHTML = '<label>c&nbsp;<input class="Popup-time" type="time" name="fromTime" min="00:00" max="23:59" value="09:00"></label><label>&nbsp;до&nbsp;<input class="Popup-time" type="time" name="toTime" min="00:00" max="23:59" value="22:00"></label>';
@@ -110,8 +110,12 @@ const popup = {
       }, 500);
       e.target.removeEventListener('click', this.hideElement);
     }
-
+    
   },
+  /**
+   * Метод создания popup окна
+   * @param {Event} e Событие, по которому создаем popup
+   */
   createForm(e) {
     let popup = document.createElement('div');
     popup.classList.add('Popup');
