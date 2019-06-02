@@ -44,7 +44,8 @@ window.onload = () => {
       'SVG', 'Less', 'PHP',
     ],
   });
-  Popup.init();
+  popup.init();
+  mainTitle.init();
   
   const wow = new WOW({
     boxClass: 'wow',      // animated element css class (default is wow)

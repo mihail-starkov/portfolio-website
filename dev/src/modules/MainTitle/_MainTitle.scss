@@ -1,9 +1,6 @@
 @import "../../../vendors/smart-grid/smart-grid";
 
-.MainTitle {
-	display : none;
+.UnderScreen {
+	display : flex;
 	margin-top : 20px;
-	@include sm-block() {
-		display : flex;
-	}
 }
