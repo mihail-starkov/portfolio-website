@@ -22,9 +22,6 @@
 			flex-direction : column;
 			align-items    : center;
 		}
-		@include sm-block() {
-			display : none;
-		}
 	}
 	
 	&-title {
