@@ -140,7 +140,6 @@ class AnimateBg {
     //Если произошло изменение ширины или высоты экрана, тогда переписываем значения, иначе рендерим как обычно
     if (this.settings.width !== this.settings.canvas.offsetWidth
       || this.settings.height !== this.settings.canvas.offsetHeight) {
-      console.log(this.settings.canvas);
       //Получаем ширину экрана и присваеваем ширине canvas
       this.settings.width = this.settings.canvas.width = this.settings.canvas.offsetWidth;
       //Получаем высоту экрана и присваеваем высоте canvas
